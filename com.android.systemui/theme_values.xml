@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MIUI_Theme_Values template="DarkTemplate">
+	<string name="empty_shade_text">Evergard</string>
+
+	<bool name="battery_meter_use_legacy_drawable">true</bool>
+	<dimen name="statusbar_battery_digit_size">0dp</dimen>
+
+	<dimen name="status_bar_padding_start">10dp</dimen>
+	<dimen name="status_bar_padding_end">10dp</dimen>
+	<dimen name="status_bar_clock_size">15.5dp</dimen>
+</MIUI_Theme_Values>

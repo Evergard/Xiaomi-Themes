@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Icon version="1" frameRate="0" width="192" height="192" resDensity="480" scaleByDensity="false" >
+<ExternalCommands>
+    <Trigger action="back_home_finish" >
+        <Command target="bonk.animation" value="play"/>
+        <Command value="play" target="horni.animation" delay="0"/>
+    </Trigger>
+</ExternalCommands>
+
+<FramerateController name="bonk" loop="false">
+    <ControlPoint time="0" frameRate="144"/>
+    <ControlPoint time="1900" frameRate="0"/>
+</FramerateController>
+
+<Var name="horni" >
+    <VariableAnimation loop="false" >
+        <AniFrame value="120" time="0" easeType="QuartEaseOut"/>
+        <AniFrame value="0" time="1800"/>
+    </VariableAnimation>
+</Var>
+
+<Image x="96" y="96" align="center" alignV="center" src="1.png"/>
+<Image x="96" y="96" align="center" alignV="center" src="2.png" centerX="62" centerY="62" rotationZ="#horni"/>
+</Icon>
