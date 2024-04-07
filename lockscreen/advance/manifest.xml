@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Lockscreen version="2" displayDesktop="false" frameRate="0" screenWidth="1080">
 
-    <!--~ https://zhuti.designer.xiaomi.com/docs/grammar/ -->
-
-    <!--! User Wallpaper -->
-    <Wallpaper x="#screen_width/2" y="#screen_height/2" align="center" alignV="center" blur="0" alpha="255"/>
+    <!--? https://zhuti.designer.xiaomi.com/docs/grammar/ and Suger -->
 
     <ExternalCommands>
         <Trigger action="resume">
@@ -82,8 +79,6 @@
     <Var name="ls_shortcut" expression="ifelse(isnull(#ls_shortcut),1,#ls_shortcut)"/>
     <Var name="repetition0" expression="preciseeval(@clock_daysofweek[0],0)" type="number"/>
     <Var name="weekVar" expression="" type="number[]" values="64,32,16,8,4,2,1" const="true"/>
-    <Var name="dm_color" expression="ifelse(#__darkmode,'#80ffffff','#80000000')" type="string"/>
-    <Var name="darkmode_bg" expression="ifelse(#__darkmode,'#ff000000','#ffffffff')" type="string"/>
     <Var name="lsTime_y" expression="ifelse(#unlocked,#screen_y*0.8,#screen_y*0.4)"/>
     <Var name="lsMusic_y" expression="ifelse(#unlocked,#screen_y*0.8,#screen_y*0.3)"/>
     <Var name="alarmMusic" expression="ifelse(#hasAlarmClock != 0,780,680)" persist="true" type="number"/>
@@ -156,10 +151,17 @@
         </VariableAnimation>
     </Var>
 
+    <!-- <Var name="scale_x" expression="ifelse((#screen_height/#name_x.bmp_height)}(#screen_width/#name_x.bmp_width),#screen_height/#name_x.bmp_height,#screen_width/#name_x.bmp_width)-1"/> -->
+    
+    <Wallpaper x="#screen_width/2" y="#screen_height/2" align="center" alignV="center" blur="0" alpha="255" visibility="1"/>
+
     <!--! Lock Screen -->
     <Group clip="true" layered="true" h="#screen_height" w="#screen_width">
 
-        <!--& PROPER DOUBLE TAP TO SLEEP IS IMPOSSIBLE HYPEROS 1.0.3-->
+        <!--! Wallpaper -->
+        <!-- <Image name="name_x" x="#screen_width/2" y="0" align="center" scale="1+#scale_x" pivotX="#name_x.bmp_width/2" pivotY="0" src="file:///sdcard/Luculia/Evergard.jpg" visibility="#scale_x } 0" srcType="Uri"/> -->
+
+        <!--? PROPER DOUBLE TAP TO SLEEP IS IMPOSSIBLE HYPEROS 1.0.3-->
 
         <!--! Clock -->
         <Group y="#lsTime_y" alpha="255+#screenY_alpha" pivotX="#screen_width/2" pivotY="560" scale="1" visibility="1">
@@ -207,9 +209,9 @@
             </VariableAnimation>
             </Var>
 
-            <Rectangle align="center" alignV="bottom" cornerRadius="8,8" fillColor="#ffffffff" h="13" visibility="1" w="385" x="#screen_width/2" xfermodeNum="8" y="#screen_height-50-40*#bar_position"/>
+            <Rectangle align="center" alignV="bottom" cornerRadius="8,8" fillColor="#ffffffff" h="13" visibility="1" w="385" x="#screen_width/2" xfermodeNum="8" y="#screen_height-20-50*#bar_position"/>
             <Group alpha="255">
-                <Rectangle align="center" alignV="bottom" cornerRadius="8,8" fillColor="#ffffffff" h="13" visibility="1" w="385" x="#screen_width/2" y="#screen_height-50-40*#bar_position"/>
+                <Rectangle align="center" alignV="bottom" cornerRadius="8,8" fillColor="#ffffffff" h="13" visibility="1" w="385" x="#screen_width/2" y="#screen_height-20-50*#bar_position"/>
             </Group>
         </Group>
 
@@ -253,7 +255,7 @@
                             <Array count="4" indexName="_notice" visibility="#hasnotifications}0">
                                 <Button alignChildren="true" alpha="ifelse(#notifDown==#_notice,255-int(#_notifMove)/3,255)" h="162" visibility="#_notice { #hasnotifications" w="1080" x="ifelse(#notifDown==#_notice,#_notifMove,0)" y="#_notice*182 - ifelse(#_notice}#notifDown,#notifUp*182,0)">
                                     <Image src="shortcut/notice_bg.png" x="26" xfermodeNum="8"/>
-                                    <Image alpha="125" src="shortcut/notice_bg.png" tint="#ffffffff" x="26"/>
+                                    <Image alpha="125" src="shortcut/notice_bg.png" x="26"/>
                                     <Text name="noticeTime" align="right" alignV="center" alpha="125" color="#000000" fontFamily="mipro-regular" size="40" spacingAdd="1" textExp="@notice_time[#_notice]" x="#screen_width-66" y="52"/>
                                     <Text alignV="center" alpha="255" bold="true" color="#000000" fontFamily="mipro-medium" marqueeSpeed="30" size="44" textExp="@notice_title[#_notice]" w="#screen_width-194-66- ifelse(#time_format,100,150)" x="194" y="52"/>
                                     <Text alignV="center" alpha="255" color="#000000" fontFamily="mipro-regular" marqueeSpeed="30" size="40" textExp="@notice_content[#_notice]" w="#screen_width-194-66" x="194" y="110"/>
@@ -294,10 +296,7 @@
                         <Group h="435" visibility="1" w="1028" x="#screen_width/2-514" y="(#up_down*(0)+(#screen_height-#down_up)*1-#notif_listHeight*1-455*1+182*1)*(1)+(#up_down*(0)+(#screen_height-#down_up)*0-#notice_list_Cover*0-455*0+182*0)*0">
                             <MusicControl name="music_control" autoShow="true" enableLyric="true" visibility="false">
                                 <Image alignV="bottom" h="435" src="music/music_bg.png" w="1028" x="0" xfermodeNum="8" y="435"/>
-                                <Image alignV="bottom" alpha="125" h="435" src="music/music_bg.png" tint="@darkmode_bg" w="1028" x="0" y="435"/>
-                                <Group alpha="255-20">
-                                    <Image alignV="bottom" alpha="255" h="435" src="music/music_bg.png" tint="@darkmode_bg" visibility="#__darkmode == 1" w="1028" x="0" y="435"/>
-                                </Group>
+                                <Image alignV="bottom" alpha="125" h="435" src="music/music_bg.png" w="1028" x="0" y="435"/>
                                 <Group align="center" alignV="center" alpha="255" clip="true" h="152" layered="true" pivotX="152/2" pivotY="152/2" scale="1" w="152" x="40+66" y="40+66">
                                     <Rectangle cornerRadius="26" fillColor="#ff000000" h="152" w="152"/>
                                     <!--! Album Cover -->
@@ -306,60 +305,60 @@
                                 </Group>
                                 <Var name="title_max_w" expression="ifelse(le(#music_title.text_width,660),#music_title.text_width,660)" type="number"/>
                                 <Var name="artist_max_w" expression="ifelse(le(#music_artist.text_width,660),#music_artist.text_width,660)" type="number"/>
-                                <Text name="music_title" align="center" bold="true" color="@darkmode_color" marqueeSpeed="30" size="44" textExp="ifelse(strIsEmpty(@music_control.title),'no music',@music_control.title)" w="659" x="203+#title_max_w/2" y="46"/>
-                                <Text name="music_artist" align="center" color="@dm_color" fontFamily="mipro-regular" marqueeSpeed="30" size="44" textExp="ifelse(strIsEmpty(@music_control.artist),'--',@music_control.artist)" w="659" x="203+#artist_max_w/2" y="110"/>
+                                <Text name="music_title" align="center" bold="true" color="#ff000000" marqueeSpeed="30" size="44" textExp="ifelse(strIsEmpty(@music_control.title),'no music',@music_control.title)" w="659" x="203+#title_max_w/2" y="46"/>
+                                <Text name="music_artist" align="center" color="#80000000" fontFamily="mipro-regular" marqueeSpeed="30" size="44" textExp="ifelse(strIsEmpty(@music_control.artist),'--',@music_control.artist)" w="659" x="203+#artist_max_w/2" y="110"/>
                                 <Group visibility="1">
-                                    <Text bold="true" color="@dm_color" size="32" textExp="ifelse(int(#music_control.music_position/600000)==0,'',int(#music_control.music_position/600000))+int((#music_control.music_position/60000)%10)+':'+int(#music_control.music_position/1000%60/10)+int(#music_control.music_position/1000%60%10)" x="60" y="206"/>
-                                    <Text bold="true" color="@dm_color" size="32" textExp="'-'+ifelse(int((#music_control.music_duration-#music_control.music_position)/600000)==0,'',int((#music_control.music_duration-#music_control.music_position)/600000))+int(((#music_control.music_duration-#music_control.music_position)/60000)%10)+':'+int((#music_control.music_duration-#music_control.music_position)/1000%60/10)+int((#music_control.music_duration-#music_control.music_position)/1000%60%10)" x="898" y="206"/>
+                                    <Text bold="true" color="#80000000" size="32" textExp="ifelse(int(#music_control.music_position/600000)==0,'',int(#music_control.music_position/600000))+int((#music_control.music_position/60000)%10)+':'+int(#music_control.music_position/1000%60/10)+int(#music_control.music_position/1000%60%10)" x="60" y="206"/>
+                                    <Text bold="true" color="#80000000" size="32" textExp="'-'+ifelse(int((#music_control.music_duration-#music_control.music_position)/600000)==0,'',int((#music_control.music_duration-#music_control.music_position)/600000))+int(((#music_control.music_duration-#music_control.music_position)/60000)%10)+':'+int((#music_control.music_duration-#music_control.music_position)/1000%60/10)+int((#music_control.music_duration-#music_control.music_position)/1000%60%10)" x="898" y="206"/>
                                 </Group>
                                 <Group alpha="255*0.6">
-                                    <Rectangle cornerRadius="10" fillColor="@darkmode_color" h="20" w="731" x="149" xfermodeNum="8" y="216"/>
+                                    <Rectangle cornerRadius="10" fillColor="#ff000000" h="20" w="731" x="149" xfermodeNum="8" y="216"/>
                                 </Group>
                                 <Group alpha="255*0.6">
-                                    <Rectangle cornerRadius="10" fillColor="@darkmode_color" h="20" w="731" x="149" xfermodeNum="8" y="216"/>
+                                    <Rectangle cornerRadius="10" fillColor="#ff000000" h="20" w="731" x="149" xfermodeNum="8" y="216"/>
                                 </Group>
-                                <Rectangle alpha="255*0.5" cornerRadius="10" fillColor="@darkmode_color" h="20" w="(731)*#musicPosition/#music_control.music_duration" x="149" y="216"/>
+                                <Rectangle alpha="255*0.5" cornerRadius="10" fillColor="#ff000000" h="20" w="(731)*#musicPosition/#music_control.music_duration" x="149" y="216"/>
                                 <Button name="music_prev" h="140" visibility="1" w="140" x="236" y="265">
                                     <Normal>
-                                        <Image src="music/prev.png" tint="@darkmode_color" x="236" y="265"/>
+                                        <Image src="music/prev.png" tint="#ff000000" x="236" y="265"/>
                                     </Normal>
                                     <Pressed>
-                                        <Image src="music/prev_p.png" tint="@darkmode_color" x="236" y="265"/>
+                                        <Image src="music/prev_p.png" tint="#ff000000" x="236" y="265"/>
                                     </Pressed>
                                 </Button>
                                 <Button name="music_play" h="140" visibility="1" w="140" x="446" y="265">
                                     <Normal>
-                                        <Image src="music/play.png" tint="@darkmode_color" x="446" y="265"/>
+                                        <Image src="music/play.png" tint="#ff000000" x="446" y="265"/>
                                     </Normal>
                                     <Pressed>
-                                        <Image src="music/play_p.png" tint="@darkmode_color" x="446" y="265"/>
+                                        <Image src="music/play_p.png" tint="#ff000000" x="446" y="265"/>
                                     </Pressed>
                                 </Button>
                                 <Button name="music_pause" h="140" visibility="1" w="140" x="446" y="265">
                                     <Normal>
-                                        <Image src="music/pause.png" tint="@darkmode_color" x="446" y="265"/>
+                                        <Image src="music/pause.png" tint="#ff000000" x="446" y="265"/>
                                     </Normal>
                                     <Pressed>
-                                        <Image src="music/pause_p.png" tint="@darkmode_color" x="446" y="265"/>
+                                        <Image src="music/pause_p.png" tint="#ff000000" x="446" y="265"/>
                                     </Pressed>
                                 </Button>
                                 <Button name="music_next" h="140" visibility="1" w="140" x="656" y="265">
                                     <Normal>
-                                        <Image src="music/next.png" tint="@darkmode_color" x="656" y="265"/>
+                                        <Image src="music/next.png" tint="#ff000000" x="656" y="265"/>
                                     </Normal>
                                     <Pressed>
-                                        <Image src="music/next_p.png" tint="@darkmode_color" x="656" y="265"/>
+                                        <Image src="music/next_p.png" tint="#ff000000" x="656" y="265"/>
                                     </Pressed>
                                 </Button>
                                 <Group alpha="255" x="908" y="101">
-                                    <Rectangle alignV="center" cornerRadius="3" fillColor="@darkmode_color" h="18+abs(cos(#time/(12*18))*13*(1-#MusicAniR))" w="6" x="0" xfermodeNum="8"/>
-                                    <Rectangle alignV="center" cornerRadius="3" fillColor="@darkmode_color" h="40-abs(cos(#time/(14*18))*13*(1-#MusicAniR))" w="6" x="10" xfermodeNum="8"/>
-                                    <Rectangle alignV="center" cornerRadius="3" fillColor="@darkmode_color" h="28+abs(cos(#time/(16*18))*13*(1-#MusicAniR))" w="6" x="10*2" xfermodeNum="8"/>
-                                    <Rectangle alignV="center" cornerRadius="3" fillColor="@darkmode_color" h="40-abs(cos(#time/(18*18))*13*(1-#MusicAniR))" w="6" x="10*3" xfermodeNum="8"/>
-                                    <Rectangle alignV="center" cornerRadius="3" fillColor="@darkmode_color" h="28+abs(cos(#time/(20*18))*13*(1-#MusicAniR))" w="6" x="10*4" xfermodeNum="8"/>
-                                    <Rectangle alignV="center" cornerRadius="3" fillColor="@darkmode_color" h="30-abs(cos(#time/(22*18))*13*(1-#MusicAniR))" w="6" x="10*5" xfermodeNum="8"/>
+                                    <Rectangle alignV="center" cornerRadius="3" fillColor="#ff000000" h="18+abs(cos(#time/(12*18))*13*(1-#MusicAniR))" w="6" x="0" xfermodeNum="8"/>
+                                    <Rectangle alignV="center" cornerRadius="3" fillColor="#ff000000" h="40-abs(cos(#time/(14*18))*13*(1-#MusicAniR))" w="6" x="10" xfermodeNum="8"/>
+                                    <Rectangle alignV="center" cornerRadius="3" fillColor="#ff000000" h="28+abs(cos(#time/(16*18))*13*(1-#MusicAniR))" w="6" x="10*2" xfermodeNum="8"/>
+                                    <Rectangle alignV="center" cornerRadius="3" fillColor="#ff000000" h="40-abs(cos(#time/(18*18))*13*(1-#MusicAniR))" w="6" x="10*3" xfermodeNum="8"/>
+                                    <Rectangle alignV="center" cornerRadius="3" fillColor="#ff000000" h="28+abs(cos(#time/(20*18))*13*(1-#MusicAniR))" w="6" x="10*4" xfermodeNum="8"/>
+                                    <Rectangle alignV="center" cornerRadius="3" fillColor="#ff000000" h="30-abs(cos(#time/(22*18))*13*(1-#MusicAniR))" w="6" x="10*5" xfermodeNum="8"/>
                                 </Group>
-                                <Image alpha="100" h="140" src="music/airplay/icon.png" srcid="#bluetooth_state!=0" tint="@darkmode_color" visibility="1" w="140" x="855" y="265"/>
+                                <Image alpha="100" h="140" src="music/airplay/icon.png" srcid="#bluetooth_state!=0" tint="#ff000000" visibility="1" w="140" x="855" y="265"/>
                                 <Button h="140" visibility="1" w="140" x="855" y="265">
                                     <Triggers>
                                         <Trigger action="double" condition="#btnv">
