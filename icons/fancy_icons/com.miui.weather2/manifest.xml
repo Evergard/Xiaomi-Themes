@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Icon version="1" frameRate="0" width="192" height="192" resDensity="480" scaleByDensity="false">
+<Icon version="1" frameRate="0" width="168" height="168" resDensity="480" scaleByDensity="false">
 
 <!--& https://zhuti.designer.xiaomi.com/docs/grammar/#天气查询  -->
 
@@ -44,17 +44,17 @@
         <Variable name="weather_aqi" type="int" column="aqilevel"/>
         <Trigger>
             <VariableCommand name="AirQuality" expression="ifelse(#weather_aqi}=0**#weather_aqi{=50,'Excellent',#weather_aqi}50**#weather_aqi{=100,'Good',#weather_aqi}100**#weather_aqi{=150,'Light',#weather_aqi}150**#weather_aqi{=200,'Moderate',#weather_aqi}200**#weather_aqi{=300,'Heavy',#weather_aqi}300,'Severe','Unavailable')" type="string"/>
-            <VariableCommand name="weatherId1" expression="ifelse(#weather_id1}25||#weather_id1{0,0,(#weather_id1}=4**#weather_id1{=6||#weather_id1}=8**#weather_id1{=11||#weather_id1==25),4,#weather_id1}=13**#weather_id1{=17,12,#weather_id1}=18**#weather_id1{=21||#weather_id1==23,18,#weather_id1==24||#weather_id1==3,3,#weather_id1)"/>
+            <VariableCommand name="weatherId1" expression="ifelse(#weather_id1}25||#weather_id1{0,0, (#weather_id1}=4**#weather_id1{=6||#weather_id1}=8**#weather_id1{=11||#weather_id1==25),4 ,#weather_id1}=13**#weather_id1{=17,12 ,#weather_id1}=18**#weather_id1{=21||#weather_id1==23,18 ,#weather_id1==24||#weather_id1==3,3,#weather_id1)"/>
         </Trigger>
     </ContentProviderBinder>
 </VariableBinders>
 
 <!--! Weathers -->
-<Image x="96" y="96" align="center" alignV="center" src="gpqw.png" srcid="#weatherId1" visibility="eq(#sun.visibility,0)"/>
+<Image x="84" y="84" align="center" alignV="center" src="gpqw.png" srcid="#weatherId1" visibility="eq(#sun.visibility,0)"/>
 
 <!--! Sunny -->
-<Image x="96" y="96" align="center" alignV="center" src="gpqw_0.png" visibility="eq(#weather_id1,0)"/>
-<Image name="sun" x="96" y="96" align="center" alignV="center" centerX="65" centerY="65" src="0.png" visibility="eq(#weather_id1,0)" >
+<Image x="84" y="84" align="center" alignV="center" src="gpqw_0.png" visibility="eq(#weather_id1,0)"/>
+<Image name="sun" x="84" y="84" align="center" alignV="center" centerX="65" centerY="65" src="0.png" visibility="eq(#weather_id1,0)" >
     <RotationAnimation loop="false"> 
         <Rotation angle="0" time="0"/>
         <Rotation angle="360" time="10000"/> 

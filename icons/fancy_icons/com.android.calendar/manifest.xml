@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Icon version="1" frameRate="1" width="168" height="168" screenWidth="1080"  useVariableUpdater="DateTime.Day">
+<Icon version="1" frameRate="0" width="168" height="168" screenWidth="1080"  useVariableUpdater="DateTime.Day">
 	<VariableBinders>
 		<BroadcastBinder action="android.intent.action.TIME_SET" />
 		<BroadcastBinder action="android.intent.action.DATE_CHANGED" />

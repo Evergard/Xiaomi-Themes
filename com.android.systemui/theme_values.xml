@@ -3,9 +3,11 @@
 	<string name="empty_shade_text">Evergard</string>
 
 	<bool name="battery_meter_use_legacy_drawable">true</bool>
-	<dimen name="statusbar_battery_digit_size">0dp</dimen>
 
-	<dimen name="status_bar_padding_start">10dp</dimen>
-	<dimen name="status_bar_padding_end">10dp</dimen>
-	<dimen name="status_bar_clock_size">15.5dp</dimen>
+	<dimen name="navigation_handle_radius">2.518dp</dimen>
+	<!-- <dimen name="navigation_handle_bottom">16dp</dimen> -->
+
+	<!-- <dimen name="status_bar_padding_start">10dp</dimen> -->
+	<!-- <dimen name="status_bar_padding_end">20dp</dimen> -->
+	<!-- <dimen name="status_bar_clock_size">16.5dp</dimen> -->
 </MIUI_Theme_Values>

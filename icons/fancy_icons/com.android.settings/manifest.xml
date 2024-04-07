@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Icon version="1" frameRate="0" width="192" height="192" resDensity="480" scaleByDensity="false" >
+<Icon version="1" frameRate="0" width="168" height="168" screenWidth="1080" resDensity="480" scaleByDensity="false" >
 <ExternalCommands>
     <Trigger action="back_home_finish" >
         <Command target="bonk.animation" value="play"/>
@@ -19,6 +19,6 @@
     </VariableAnimation>
 </Var>
 
-<Image x="96" y="96" align="center" alignV="center" src="1.png"/>
-<Image x="96" y="96" align="center" alignV="center" src="2.png" centerX="62" centerY="62" rotationZ="#horni"/>
+<Image x="84" y="84" align="center" alignV="center" src="1.png"/>
+<Image x="84" y="84" align="center" alignV="center" src="2.png" centerX="62" centerY="62" rotationZ="#horni"/>
 </Icon>
