@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MIUI_Theme_Values template="LightTemplate">
+	<string name="device_miui_version_for_POCO">Evergard</string>
+	<string name="device_miui_version">Evergard</string>
+</MIUI_Theme_Values>

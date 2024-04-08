@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<MIUI_Theme_Values>
+    <!-- 大背景 -->
+    <drawable name="miuix_appcompat_window_bg_light.9.png">miuix_appcompat_settings_window_bg_light.9.png</drawable>
+    <!-- 顶栏背景 -->
+    <drawable name="miuix_appcompat_action_bar_bg_light.9.png">miuix_appcompat_search_mode_input_bg_light.9.png</drawable>
+    <!-- 文字粗细icon -->
+    <drawable name="textIcon_thick.png">texticon_thick.png</drawable>
+    <drawable name="textIcon_thin.png">texticon_thin.png</drawable>
+
+</MIUI_Theme_Values>

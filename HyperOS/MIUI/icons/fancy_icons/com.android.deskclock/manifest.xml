@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>    
+<Icon version="1" frameRate="0" width="168" height="168" screenWidth="1080" useVariableUpdater="DateTime.Second">
+	<Var name="momentMinute" expression="#time_sys%60000"/>
+	<Var name="minuteAngle" expression="(#minute-1)*6" threshold="6">
+		<Trigger>
+			<Command target="minute.animation" value="play"/>
+		</Trigger>
+	</Var>
+	<Image  x="84" y="84" align="center" alignV="center" src="icon.png" />
+	<Image name="hours" x="84" y="84" align="center" alignV="center" centerX="#hours.bmp_width/2" centerY="#hours.bmp_height/2" src="h.png"  antiAlias="true" angle="#hour12*30+#minute/2" antiAlias="true"/>
+	<Image name="minutes" x="84" y="84" antiAlias="true" centerX="#minutes.bmp_width/2" centerY="#minutes.bmp_height/2" angle="#minuteAngle" src="m.png"  align="center" alignV="center" antiAlias="true" >
+		<RotationAnimation>
+			<Rotation angle="0" time="0"/>
+			<Rotation angle="6" time="250"/>
+			<Rotation angle="6" time="100000000000"/>
+		</RotationAnimation>
+	</Image>
+	<Image name="seconds" x="84" y="84" antiAlias="true" centerX="#seconds.bmp_width/2" centerY="#seconds.bmp_height/2" angle="#momentMinute*0.006"  src="s.png"  align="center" alignV="center" antiAlias="true"/>  
+</Icon>
