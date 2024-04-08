@@ -1,0 +1,11 @@
+Theme Name: Luculia
+
+Credits:
+
+• Suger (base template for icons, lockscreen, homescreen, and clock). Thank you very much.
+
+• Flaticon.com
+
+• Pexels.com
+
+• Freepik.com
