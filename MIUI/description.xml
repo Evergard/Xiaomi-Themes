@@ -4,9 +4,9 @@
 	<designer>Evergard</designer>
 	<author>Evergard</author>
 	<version>1.0</version>
-	<uiVersion>15</uiVersion>
+	<uiVersion>10</uiVersion>
 	<editorVersion>1.3.3</editorVersion>
 	<resourceType>theme</resourceType>
 	<moduleVersion>com.android.contacts:0.0.2;com.android.mms:0.0.2;com.android.settings:0.0.2;com.android.systemui:0.0.2;com.miui.home:0.0.2;com.miui.notification:0.0.2;com.miui.securitycenter:0.0.2;framework-res:0.0.2;</moduleVersion>
-	<miuiAdapterVersion>3.0</miuiAdapterVersion>
+	<miuiAdapterVersion>2.0</miuiAdapterVersion>
 </MIUI-Theme>
