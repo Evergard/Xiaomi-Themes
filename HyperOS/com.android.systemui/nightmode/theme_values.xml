@@ -11,5 +11,5 @@
 
 	<dimen name="status_bar_padding_start">20dp</dimen>
 	<dimen name="status_bar_padding_end">5dp</dimen>
-	<dimen name="status_bar_clock_size">15dp</dimen>
+	<dimen name="status_bar_clock_size">16dp</dimen>
 </MIUI_Theme_Values>
