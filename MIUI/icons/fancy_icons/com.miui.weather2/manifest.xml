@@ -10,6 +10,12 @@
             <Command target="sun.visibility" value="true"/>
             <Command value="play" target="sun.animation"/>
     </Trigger>
+    <Trigger action="init,back_home_cancel">
+            <VariableCommand name="useQuietImage" expression="1"/>
+    </Trigger>
+    <Trigger action="back_home_start">
+            <VariableCommand name="useQuietImage" expression="0"/>
+    </Trigger>
 </ExternalCommands>
 
 <FramerateController name="weatherIcon" loop="false">
