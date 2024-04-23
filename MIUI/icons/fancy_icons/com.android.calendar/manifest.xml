@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Icon version="1" frameRate="0" width="168" height="168" screenWidth="1080"  useVariableUpdater="DateTime.Day">
 	<VariableBinders>
-		<BroadcastBinder action="android.intent.action.TIME_SET" />
-		<BroadcastBinder action="android.intent.action.DATE_CHANGED" />
+		<BroadcastBinder action="android.intent.action.TIME_SET"/>
+		<BroadcastBinder action="android.intent.action.DATE_CHANGED"/>
 	</VariableBinders>
-	<Var name="toDay" expression="#day_of_week" const="true"/>
+	<Var name="toDay" expression="#day_of_week-1"/>
 	<Image x="84" y="84" align="center" alignV="center" src="bg.png"/>
-	<Text x="84" y="20" name="theDay" color="#FA5A71" textExp="ifelse(#toDay==1,'SUN',#toDay==2,'MON',#toDay==3,'TUE',#toDay==4,'WED',#toDay==5,'THU',#toDay==6,'FRI','SAT')" bold="true" size="34" align="center"/>
+	<Text x="84" y="20" name="theDay" color="#FA5A71" textExp="ifelse(#toDay==0,'SUN',#toDay==1,'MON',#toDay==2,'TUE',#toDay==3,'WED',#toDay==4,'THU',#toDay==5,'FRI','SAT')" bold="true" size="34" align="center"/>
 	<ImageNumber x="84" y="78" align="center" src="t.png" space="10" number="#date"/>
 </Icon>
