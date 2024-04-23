@@ -287,6 +287,29 @@
                 </Group>
             </Group>
         </Group>
+
+        <!--! Missed Call Reminder -->
+        <Group alpha="255+#screenY_alpha" visibility="1" y="#screen_y*0.8">
+            <Group visibility="#call_missed_count } 0" y="#hasnotifications } 0*70">
+                <Button align="center" alignV="center" h="80" w="300" x="#screen_width/2" y="#screen_height-215">
+                    <Normal/>
+                    <Pressed>
+                        <Rectangle align="center" alignV="center" cornerRadius="40,40" fillColor="#ffffffff" h="80" w="340" x="#screen_width/2" xfermodeNum="8" y="#screen_height-215"/>
+                        <Rectangle align="center" alignV="center" alpha="255*0.5" cornerRadius="40,40" fillColor="#ffffff" h="80" w="340" x="#screen_width/2" y="#screen_height-215"/>
+                    </Pressed>
+                    <Triggers>
+                        <Trigger action="up">
+                            <IntentCommand action="android.intent.action.MAIN" class="com.android.contacts.activities.TwelveKeyDialer" condition="#btnv" package="com.android.contacts"/>
+                            <ExternCommand command="unlock" condition="#btnv"/>
+                        </Trigger>
+                    </Triggers>
+                </Button>
+                <Group x="#screen_width/2-#call_missed_t.text_width/2-20">
+                    <Circle name="call_missed_c" alignV="center" fillColor="#ffffff" r="16" x="0" y="#screen_height-215"/>
+                    <Text name="call_missed_t" alignV="center" alpha="255" color="#ffffff" size="40" textExp="'Missed call '+ #call_missed_count" x="0+32+6" y="#screen_height-215"/>
+                </Group>
+            </Group>
+        </Group>
         
         <!--! Music -->
         <Group alpha="255" visibility="1">
