@@ -249,9 +249,9 @@
         </Group>
 
         <!--! Top Bar -->
-        <Group alpha="255+#screenY_alpha" y="0" visibility="1">
-            <Rectangle x="#screen_width-80" y="110" w="160" h="8" cornerRadius="4,4" fillColor="#ffffffff" align="right" xfermodeNum="8" visibility="1"/>
-            <Rectangle x="#screen_width-80" y="110" w="160" h="8" cornerRadius="4,4" fillColor="@isDark" align="right" alpha="255" visibility="1"/>
+        <Group alpha="255+#screenY_alpha" y="#lsTime_y" visibility="1">
+            <Rectangle x="#screen_width-135" y="110" w="160" h="8" cornerRadius="4,4" fillColor="@isDark" align="right" xfermodeNum="8" visibility="1"/>
+            <Rectangle x="#screen_width-135" y="110" w="160" h="8" cornerRadius="4,4" fillColor="@isDark" align="right" alpha="255" visibility="1"/>
         </Group>
 
         <!--! Bar -->
